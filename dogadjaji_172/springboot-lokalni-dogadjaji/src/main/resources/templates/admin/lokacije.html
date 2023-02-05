@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<div th:replace="admin/header :: header"></div>
+<body>
+<div th:replace="admin/header :: navbar"></div>
+<div class="container">
+  <div class="row">
+    <h1>Sve lokacije</h1>
+  </div>
+  <table class="table">
+    <thead class="table-danger">
+    <th scope="col">#</th>
+    <th scope="col">Naziv</th>
+    <th scope="col">Opis</th>
+    <th scope="col">Slika</th>
+    <th scope="col"></th>
+    </thead>
+    <tbody>
+    <tr th:each="lokacija, lokacijaStat: ${lokacije}">
+      <td th:text="${lokacijaStat.count}"></td>
+      <td th:text="${lokacija.naziv}"></td>
+      <td th:text="${lokacija.opis}"></td>
+      <td>
+        <img th:src="${lokacija.slika}" width="250px">
+      </td>
+      <td>
+        <a th:href="@{/admin/lokacije/{lokacijaId}/uredi(lokacijaId=${lokacija.id})}" class="btn btn-danger">Edit</a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<div th:replace="admin/footer :: footer"></div>
+</body>
+</html>

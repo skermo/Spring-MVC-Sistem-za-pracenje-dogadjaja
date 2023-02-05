@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+  <meta charset="UTF-8">
+  <title>Sistem za praćenje lokalnih događaja</title>
+  <link crossorigin="anonymous"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+        rel="stylesheet">
+  <link th:href="@{/css/styles.css}" rel="stylesheet"/>
+</head>
+<body>
+<section>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-danger" th:fragment="navbar">
+    <div class="container-fluid">
+      <a class="navbar-brand" th:href="@{/}">Sistem za praćenje lokalnih događaja</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" th:href="@{/}">Događaji</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" th:href="@{/registracija}">Registracija</a>
+          </li>
+        </ul>
+        <form class="d-flex" th:action="@{/dogadjaji/pretraga}">
+          <input class="form-control me-2" type="text" placeholder="Search" aria-label="Search" name="query">
+          <button class="btn btn-outline-light" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+</section>
+<br /><br />
+<div class="container">
+  <div class="row col-md-6 offset-md-3">
+    <div th:if="${param.error}">
+      <div class="alert alert-danger">Nevalidan username ili password</div>
+    </div>
+    <div th:if="${param.logout}">
+      <div class="alert alert-success"> Uspješan Logout</div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <h1 class="text-center">Log In</h1>
+      </div>
+      <div class="card-body">
+        <form
+                method="post"
+                th:action="@{/login}"
+                class="form-horizontal"
+                role="form"
+                style="text-align: left; color: #d9534f"
+
+        >
+          <div class="form-group mb-3">
+            <label class="control-label">Email</label>
+            <input
+                    type="text"
+                    id="username"
+                    name="username"
+                    class="form-control"
+                    placeholder="Unesite email"
+            />
+          </div>
+          <div class="form-group mb-3">
+            <label class="control-label">Password</label>
+            <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    class="form-control"
+                    placeholder="Unesite password"
+            />
+          </div>
+          <div class="form-group mb-3">
+            <button type="submit" class="btn btn-danger">Submit</button>
+            <span> Niste registrovani?
+                            <a th:href="@{/registracija}">Register/SignUp</a>
+                        </span>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<br /><br /><br />
+<footer class="footer-copyright text-center bg-danger py-3"
+        style="position:fixed; width:100%; bottom:0; color:white"
+        th:fragment="footer">
+  <div>
+    <strong>
+      2022
+    </strong>
+  </div>
+</footer>
+</body>
+</html>

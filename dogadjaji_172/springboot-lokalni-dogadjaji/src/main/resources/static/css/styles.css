@@ -1,0 +1,23 @@
+body{
+    text-align: center;
+}
+h1 {
+    color: #d9534f;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 34px;
+    font-weight: 300;
+    line-height: 40px;
+    padding: 30px;
+    font-weight: bold;
+}
+
+h4{
+    color: #d9534f;
+}
+img{
+    padding: 20px;
+}
+.malo{
+    text-align: left;
+    color: #d9534f;
+}

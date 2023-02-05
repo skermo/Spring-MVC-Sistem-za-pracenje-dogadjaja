@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<div th:replace="korisnik/header :: header"></div>
+<body>
+<div th:replace="korisnik/header :: navbar"></div>
+<br />
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div th:each = "dogadjaj: ${dogadjaji}">
+                <div class="card">
+                    <div class="card-header" style="text-align: center">
+                        <h2>
+                            <a th:href="@{/dogadjaji/{dogadjajUrl}(dogadjajUrl=${dogadjaj.url})}"
+                               th:text="${dogadjaj.naziv}" style="color: #d9534f"></a>
+                        </h2>
+                        <div>
+                            <strong th:text="${#temporals.format(dogadjaj.datum, 'dd MMMM yyyy')}">
+                            </strong>
+                        </div>
+                    </div>
+                </div>
+                <br />
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="korisnik/footer :: footer"></div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<div th:replace="admin/header :: header"></div>
+<body>
+<div th:replace="admin/header :: navbar"></div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <h1 th:text="${dogadjaj.naziv}"></h1>
+      <img th:src="${dogadjaj.slika}" width="400px">
+      <h4 th:text="${dogadjaj.datum}"></h4>
+      <hr />
+      <div th:utext="${dogadjaj.opis}">
+      </div>
+      <hr />
+    </div>
+
+  </div>
+</div>
+<div th:replace="admin/footer :: footer"></div>
+</body>
+</html>

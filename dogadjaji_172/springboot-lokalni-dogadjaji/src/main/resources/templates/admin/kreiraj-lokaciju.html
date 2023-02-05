@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+>
+
+<div th:replace="admin/header :: header"></div>
+<body>
+<div th:replace="admin/header :: navbar"></div>
+<br /><br />
+<div class="container">
+    <div class="row col-md-8 offset-md-2">
+        <div class="card">
+            <div class="card-header">
+                <h1 class="text-center">Nova lokacija</h1>
+            </div>
+            <div class="card-body">
+                <form role="form" method="post" th:action="@{/admin/nova/lokacija}" th:object="${lokacija}" class="malo">
+                    <div class="mb-3">
+                        <label class="form-label"> Naziv </label>
+                        <input
+                                type="text"
+                                class="form-control"
+                                id="title"
+                                placeholder="Unesite naziv lokacije"
+                                name="naziv"
+                                th:field="*{naziv}"
+                        />
+                        <p th:if="${#fields.hasErrors('naziv')}" class="text-danger" th:errors="*{naziv}"></p>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Opis</label>
+                        <textarea
+                                class="form-control"
+                                id="shortDescription"
+                                placeholder="Unesite opis lokacije"
+                                rows="3"
+                                name="opis"
+                                th:field="*{opis}"
+                        >
+                        </textarea>
+                        <p th:if="${#fields.hasErrors('opis')}" class="text-danger" th:errors="*{opis}"></p>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Slika</label>
+                        <input
+                                type="text"
+                                class="form-control"
+                                id="slika"
+                                placeholder="Unesite url slike lokacije"
+                                name="slika"
+                                th:field="*{slika}"
+                        />
+                        <p th:if="${#fields.hasErrors('slika')}" class="text-danger" th:errors="*{slika}"></p>
+                    </div>
+                    <button type="submit" class="btn btn-danger">Submit</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+<br /><br /><br /><br /><br />
+<div th:replace="admin/footer :: footer"></div>
+</body>
+</html>

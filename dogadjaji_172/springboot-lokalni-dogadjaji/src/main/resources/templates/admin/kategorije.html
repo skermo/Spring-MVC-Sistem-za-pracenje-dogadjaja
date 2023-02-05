@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<div th:replace="admin/header :: header"></div>
+<body>
+<div th:replace="admin/header :: navbar"></div>
+<div class="container">
+    <div class="row">
+        <h1>Sve kategorije</h1>
+    </div>
+    <table class="table">
+        <thead class="table-danger">
+        <th  scope="col">#</th>
+        <th  scope="col">Naziv</th>
+        <th  scope="col">Ikonica</th>
+        <th  scope="col"></th>
+        </thead>
+        <tbody>
+        <tr th:each="kategorija, kategorijaStat: ${kategorije}">
+            <td th:text="${kategorijaStat.count}"></td>
+            <td th:text="${kategorija.naziv}"></td>
+            <td>
+                <img th:src="${kategorija.ikonica}" width="120px">
+            </td>
+            <td>
+                <a th:href="@{/admin/kategorije/{kategorijaId}/uredi(kategorijaId=${kategorija.id})}" class="btn btn-danger">Edit</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div th:replace="admin/footer :: footer"></div>
+</body>
+</html>

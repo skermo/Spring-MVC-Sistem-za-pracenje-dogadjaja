@@ -1,0 +1,13 @@
+INSERT INTO `role` VALUES (1,'ROLE_ADMIN'),(2,'ROLE_GUEST'); 
+INSERT INTO `korisnik` VALUES (1,'admin@gmail.com','admin','$2a$10$k9644mshajjDvMhU8p76.u4sgOFuINZDkZ/csNgzFY99W1diZjBuC', 'admin'); 
+INSERT INTO `lokacija` VALUES (1, 'Zenica', 'Zenica je grad umjerenih i ugodnih proporcija, ni previše velik da zaguši bliskost među ljudima, ni odveć malen da umanji mogućnost izbora.', 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/21/e8/1d/e3/caption.jpg?w=700&h=500&s=1'); 
+INSERT INTO `lokacija` VALUES  (2, 'Sarajevo', 'Sarajevo (stari hrvatski naziv: Vrhbosna) glavni je i najveći grad Bosne i Hercegovine.', 'https://www.roadaffair.com/wp-content/uploads/2019/01/sebilj-fountain-sarajevo-bosnia-and-herzegovina-shutterstock_574540984-1024x683.jpg');
+INSERT INTO `lokacija` VALUES (3, 'Banja Luka', 'Banja Luka jest grad u zapadnom dijelu Bosne i Hercegovine, smješten na rijeci Vrbas. Po veličini je drugi grad u Bosni i Hercegovini. Upravno je središte Republike Srpske, te privredni i kulturni centar ovog dijela Bosanske krajine.', 'https://upload.wikimedia.org/wikipedia/commons/b/b5/%D0%A2%D0%B2%D1%80%D1%92%D0%B0%D0%B2%D0%B0_%D0%9A%D0%B0%D1%81%D1%82%D0%B5%D0%BB_7.jpg');
+INSERT INTO `kategorija` VALUES (1, 'http://cdn.onlinewebfonts.com/svg/img_256194.png', 'zabavno');
+INSERT INTO `kategorija` VALUES (2, 'https://cdn-icons-png.flaticon.com/512/3917/3917267.png', 'dugoocekivano');
+INSERT INTO `kategorija` VALUES (3, 'https://static.vecteezy.com/system/resources/previews/005/747/906/original/info-icon-template-information-icon-colorful-free-vector.jpg', 'informativno');
+INSERT INTO `dogadjaj` VALUES(1, '2022-12-31', 'Doček Nove Godine', 'Doček Nove godine biće organizovan i ove godine u Zenici u okviru festivala “Zenica Adventure”. Posjetioce očekuje 15 dana zabave i koncerata kako domaćih, tako i regionalnih pjevača.', 'https://visoko.ba/wp-content/uploads/2017/10/2-13-696x400.jpg', 'docek-nove-godine', '1', '2');
+INSERT INTO `dogadjaj` VALUES(2, '2022-12-29', 'Koncert Bajage', 'Jedan od najvećih i najpopularnijih pop-rock sastava nastupat će u Sarajevu sa simfonijskim orkestrom. ', 'https://avaz.ba/media/2022/09/23/1924905/thumbs/873x400.jpg', 'koncert-bajage', '2', '1');
+INSERT INTO `komentar` VALUES(1, '2022-12-10', 'kermosemra@gmail.com', 'Jedva cekam!', '1');
+INSERT INTO `komentar` VALUES(2, '2022-12-11', 'azra@gmail.com', 'Bit ce fenomenalno!', '1');
+INSERT INTO `komentar` VALUES(3, '2022-12-21', 'azra@gmail.com', 'WOW', '2');

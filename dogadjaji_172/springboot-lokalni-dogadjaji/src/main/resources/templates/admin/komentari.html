@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<div th:replace="admin/header :: header"></div>
+<body>
+<div th:replace="admin/header :: navbar"></div>
+<div class="container">
+  <div class="row">
+    <h1>Svi komentari</h1>
+  </div>
+  <br />
+  <table class="table">
+    <thead class="table-danger">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Email</th>
+      <th scope="col">Komentar</th>
+      <th scope="col">Datum</th>
+      <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each = "komentar, komentarStat: ${komentari}">
+      <td th:text="${komentarStat.count}"></td>
+      <td th:text="${komentar.email}"></td>
+      <td th:text="${komentar.tekst}"></td>
+      <td th:text="${#temporals.format(komentar.datum, 'dd MMM yyyy')}"></td>
+      <td>
+        <a class="btn btn-danger" th:href="@{/admin/dogadjaj/komentari/{komentarId}(komentarId=${komentar.id})}">Delete</a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<div th:replace="admin/footer :: footer"></div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+>
+
+<div th:replace="admin/header :: header"></div>
+<body>
+<div th:replace="admin/header :: navbar"></div>
+<br /><br />
+<div class="container">
+    <div class="row col-md-8 offset-md-2">
+        <div class="card">
+            <div class="card-header">
+                <h1 class="text-center">Nova kategorija</h1>
+            </div>
+            <div class="card-body">
+                <form role="form" method="post" th:action="@{/admin/nova/kategorija}" th:object="${kategorija}" class="malo">
+                    <div class="mb-3">
+                        <label class="form-label"> Naziv </label>
+                        <input
+                                type="text"
+                                class="form-control"
+                                id="title"
+                                placeholder="Unesite naziv kategorije"
+                                name="naziv"
+                                th:field="*{naziv}"
+                        />
+                        <p th:if="${#fields.hasErrors('naziv')}" class="text-danger" th:errors="*{naziv}"></p>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Ikonica</label>
+                        <input
+                                type="text"
+                                class="form-control"
+                                id="ikonica"
+                                placeholder="Unesite url ikonice kategorije"
+                                name="ikonica"
+                                th:field="*{ikonica}"
+                        />
+                        <p th:if="${#fields.hasErrors('ikonica')}" class="text-danger" th:errors="*{ikonica}"></p>
+                    </div>
+                    <button type="submit" class="btn btn-danger">Submit</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+<br /><br /><br /><br /><br />
+<div th:replace="admin/footer :: footer"></div>
+</body>
+</html>

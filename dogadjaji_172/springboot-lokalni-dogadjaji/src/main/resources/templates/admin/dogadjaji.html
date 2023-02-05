@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en"
+  xmlns:th="http://www.thymeleaf.org">
+<div th:replace="admin/header :: header"></div>
+<body>
+<div th:replace="admin/header :: navbar"></div>
+  <div class="container">
+    <div class="row">
+      <h1>Svi događaji</h1>
+    </div>
+    <table class="table">
+      <thead class="table-danger">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Naziv</th>
+        <th scope="col">Datum</th>
+        <th scope="col"></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="dogadjaj, dogadjajStat: ${dogadjaji}">
+        <td th:text="${dogadjajStat.count}"></td>
+        <td th:text="${dogadjaj.naziv}"></td>
+        <td th:text="${dogadjaj.datum}"></td>
+        <td>
+          <a th:href="@{/admin/dogadjaji/{dogadjajId}/uredi(dogadjajId=${dogadjaj.id})}" class="btn btn-danger">Edit</a>
+          <a th:href="@{/admin/dogadjaji/{dogadjajUrl}/detalji(dogadjajUrl=${dogadjaj.url})}" class="btn btn-outline-danger">View</a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+<div th:replace="admin/footer :: footer"></div>
+</body>
+</html>
